@@ -1,0 +1,63 @@
+provider "aws" {
+  region = "us-west-1"  # Set your desired region here
+}
+
+resource "aws_vpc" "vpcs" {
+  count = 3
+
+  cidr_block = "10.${count.index}.0.0/16"
+  enable_dns_support = true
+  enable_dns_hostnames = true
+
+  tags = {
+    Name = "VPC${count.index + 1}"
+  }
+}
+
+resource "aws_subnet" "subnets" {
+  count = 3
+
+  cidr_block = "10.${count.index}.0.0/24"
+  vpc_id = aws_vpc.vpcs[count.index].id
+
+  availability_zone = "us-west-1a"  # Adjust the AZ as needed
+
+  tags = {
+    Name = "Subnet${count.index + 1}"
+  }
+}
+
+resource "aws_ec2_instance" "instances" {
+  count         = 3
+
+  ami           = "ami-12345678"  # Replace with a valid AMI ID
+  instance_type = "t2.micro"
+  subnet_id     = aws_subnet.subnets[count.index].id
+
+  tags = {
+    Name = "Instance${count.index + 1}"
+  }
+}
+
+# Create a Transit Gateway
+resource "aws_ec2_transit_gateway" "transit_gateway" {
+  description = "Transit Gateway for VPC communication"
+}
+
+# Attach VPCs to the Transit Gateway
+resource "aws_ec2_transit_gateway_vpc_attachment" "vpc_attachments" {
+  for_each = aws_vpc.vpcs
+
+  transit_gateway_id = aws_ec2_transit_gateway.transit_gateway.id
+  vpc_id             = each.value.id
+  subnet_ids         = [aws_subnet.subnets[each.key].id]
+}
+
+# Create routes in each VPC's route table to route traffic through the Transit Gateway
+resource "aws_route" "route_to_transit_gateway" {
+  for_each = aws_vpc.vpcs
+
+  route_table_id         = each.value.default_route_table_id
+  destination_cidr_block = "0.0.0.0/0"
+  transit_gateway_id     = aws_ec2_transit_gateway.transit_gateway.id
+}

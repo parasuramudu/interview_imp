@@ -1,0 +1,91 @@
+code examples
+
+public class ReverseString {
+    public static void main(String[] args) {
+        String input = "Hello, World!";
+        String reversed = reverseString(input);
+        System.out.println("Original String: " + input);
+        System.out.println("Reversed String: " + reversed);
+    }
+
+    public static String reverseString(String input) {
+        // Create an empty string to store the reversed result
+        String reversed = "";
+
+        // Iterate through the input string in reverse order
+        for (int i = input.length() - 1; i >= 0; i--) {
+            // Append each character to the reversed string
+            reversed += input.charAt(i);
+        }
+
+        // Return the reversed string
+        return reversed;
+    }
+}
+
+============================
+
+public class FindWordInString {
+    public static void main(String[] args) {
+        String text = "This is a sample text. Find the word 'sample' in this text.";
+        String targetWord = "sample";
+        
+        int index = findWord(text, targetWord);
+
+        if (index != -1) {
+            System.out.println("The word '" + targetWord + "' was found at index " + index);
+        } else {
+            System.out.println("The word '" + targetWord + "' was not found in the text.");
+        }
+    }
+
+    public static int findWord(String text, String targetWord) {
+        int textLength = text.length();
+        int wordLength = targetWord.length();
+
+        for (int i = 0; i <= textLength - wordLength; i++) {
+            boolean match = true;
+            for (int j = 0; j < wordLength; j++) {
+                if (text.charAt(i + j) != targetWord.charAt(j)) {
+                    match = false;
+                    break;
+                }
+            }
+            if (match) {
+                return i; // Return the index where the word was found
+            }
+        }
+
+        return -1; // Return -1 if the word was not found in the text
+    }
+}
+===========================
+
+pelindrome
+
+public class PalindromeCheck {
+    public static void main(String[] args) {
+        String input = "racecar"; // Change this to the string you want to check
+        
+        boolean isPalindrome = isPalindrome(input);
+        
+        if (isPalindrome) {
+            System.out.println("'" + input + "' is a palindrome.");
+        } else {
+            System.out.println("'" + input + "' is not a palindrome.");
+        }
+    }
+
+    public static boolean isPalindrome(String str) {
+        int length = str.length();
+
+        for (int i = 0; i < length / 2; i++) {
+            if (str.charAt(i) != str.charAt(length - 1 - i)) {
+                return false; // If characters at symmetric positions don't match, it's not a palindrome
+            }
+        }
+
+        return true; // If the loop completes without finding a mismatch, it's a palindrome
+    }
+}
+

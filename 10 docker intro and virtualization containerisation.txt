@@ -1,0 +1,136 @@
+Applications:
+-------------
+Server/Laptop + os + packages installed + Application Server Tomcat/Nginx.
+
+install application on top of these
+
+On-Premise Servers:
+-------------------
+you have server
+install os
+networking
+power to them
+some space
+
+install packages
+application server
+
+application
+
+64gb RAM,1TB Hard disk,some processor
+10GB RAM,20GB HD
+
+resource utilisation is very poor
+
+entire application is crashed when someting went wrong
+buy server,install os,set networking,power space
+bootable time is very high
+
+virtualisation: vm
+--------------
+Logically dividing a single server into multiple server
+
+64GB RAM,1TB HD
+4 teams
+
+8GB RAM, 50 GB HD --> 4GB RAM only,20GB HD
+4 logical servers --> virtualisation /Hyperviser
+
+you need to have a seperate team for virtualisation
+5-10 min to creeate another logical server,install os
+
+containerisation:
+----------------
+there will be no hypervisor
+hardware,os,container engine
+
+container/image = Base os + required packages+app server+app code
+seconds,it will  not block storage,proper resource utilisation is there
+bootable time is very less
+
+bootable time --> it can server sudden spike in traffic
+cost --> very less
+resource utilisation --> more
+high availability --> more,if one server goes done immediatelyapp will be shifted to another server
+auto scaling --> based on the traffic, your app instances will be increased with in seconds
+reliability --> trust on applications availability
+consistent environment --> working in DEV,not working in PROD
+DEV servers --> one os version
+prod server --> diff os versions,diff package version
+
+container.image --> immutable --> complete suit
+you will use same image in DEV and same image in PROD
+portable --> easy to shift
+
+base os --> bare minimum os very light weight just to make your server running
+windows --> 4GB
+alpine --> 5MB 
+150MB
+base os --> bare minium os --> capability to ru only application 
+
+
+microservices:
+--------------
+old aproch:
+----------
+EAR --> Enterprise archive
+WAR --> Web archive
+
+html/css/js
+jsp and servlets
+200MB
+you need to go for release,you need to plan and release new version again
+1 day change
+
+monolithic:
+-----------
+Seperate UI --> frontend
+
+Seperate Backend/api --> backend --> 150MB
+
+json api,xml api
+a siple error in cart can cause the entire application go down.
+
+MicroServices:
+--------------
+Frontend
+
+modules:
+--------
+user,cart,catalogue,payment,order,dispach
+
+create subtasks and assign one subtask to one person
+
+Docker is one of the software to provide images and containers capability.
+-------------------------------------------------------------------------
+install docker 
+learn docker commands
+create our images containers
+
+docker architecture
+
+instaling docker:
+-----------------
+AWS linux2 = centos = RHEL
+install docker --> create a group called docker 
+you should add your user to docker group to get access to docker command
+
+docker images --> will show the images in your server
+
+docker pull imagename:tag:version
+
+stable-alpine3.17-slim = alpine os + some packages + nginx server
+nginx:stable-alpine3.17-slim
+copy appcode
+
+run this you will get app up and ranning
+
+image vs container
+container is running version of image
+
+docker run image:version = docker pull + docker create + docker start
+
+every server have ports
+0 -  65535
+
+container ports --> 0 - 65535 by default container ports not exposeed

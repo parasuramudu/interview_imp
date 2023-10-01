@@ -1,0 +1,38 @@
+hoow to create our images on containers
+---------------------------------------
+Dockerfile --> declarative approch to create own images
+
+FROM:
+-----
+first instruction in dockerfile should be from
+
+FROM ferers base os ,to create image you always should refer some base os
+ubuntu/centos/rhel/
+
+<Dockerinstruction-Name>
+FROM <baseOS>:<version>
+
+docker build -t <image-name>:<version> .
+. refer current directory ,you are intimation docker engine that Dockerfile is in current directory
+
+you build this and push to docker hub/your organization repos
+
+docker build -t <Docker-HUB-URL>/Username/image-name:version .
+RUN:
+---
+i want to install nginx in my image
+RUN yum install nginx -y
+
+CMD:
+----
+it is the instruction to run the container. your CMD should always run in foreground and it should run for infinite time...
+
+RUN vs CMD:
+-----------
+1. RUN instruction will be executed at the time of image creation.
+2.CMD instruction will be executed at the time of container creation 
+
+COPY:
+-----
+COPY instruction is to copy the file from local to image
+COPY <local-path> <path-inside-image>

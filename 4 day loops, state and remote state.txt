@@ -1,0 +1,65 @@
+loops
+-----
+1.count based loops, mostly work with list
+2.for each loop, works with map usually
+
+create 2 public subnets and 2 privete subnets
+
+high availability , we have to consider 2 azs
+
+for each loop:
+-------------
+task is to create two private subnets
+
+variables:
+----------
+1. default values through variables.tf
+2. values through terraform.tfvars
+3. through command line
+ 
+users can always override existing default values in variabkes.tf
+
+always value from the command line will take the priority --> -var="vpc-cidr=10.2.0.0./16"
+then terraform.tfvars
+then variables.tf
+then enter the value
+
+state and remote state:
+-----------------------
+tf files = declared configuration
+state file = actual configuration created by terraform
+
+declared configuration = actual configuration
+
+if you keep the state file in local,there is a chance of creating duplicated infra
+
+1.in a collabaration env, to avoid duplicate infra and errors we will use remote state
+2.keeping state in local may be deleted or changed ,restoring it manually is very difficult.
+Q) what is the state and remote state in terraform.?
+
+Outputs
+Data sources
+Locals
+
+outputs:
+--------
+outputs are useful to print the output values of resources
+
+locals:
+-------
+locals can run some functions or expressions and it stores the values.
+
+Q) what is the defferent between locals and variables?
+     
+in a variable we can declare the variable and  values 	and locals also we can declare the name and values 
+
+locals some more capabilities we can run fuctions as well as expressions
+
+data source:
+------------
+if you want some information from providers,you can query your providers and fetch the data.
+
+i want to fetch AMI IDs from aws dynamically
+
+1.fetch the data of existing resources
+2.fetch data of provider information  

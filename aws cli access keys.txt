@@ -1,0 +1,13 @@
+terraform admin:
+
+access key: AKIATZBV3U73DJ4LOG4P
+
+secret access key: 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
+
+
+parasuram:
+
+access key: AKIATZBV3U73IGCGLGDC
+secret access key: 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
+
+BUNhvyohBaSQTOa4PziGxepXawuHbyG062o92MFA

@@ -1,0 +1,496 @@
+Git Interview Questions and Answers
+===========================================
+1. Explain difference between Git clone,Git fetch and Git pull ?
+Ans: 1 Git clone:
+          The clone command in git is used when you want to download an existing git repository to your local computer.
+        2 Git pull:
+           When you want to take changes or updates done by other developer/team member on git repository, you have to use git pull.
+           In detail git pull is the command that fetches the content from a remote repository and integrates it with the local repository/branch. 
+           It is, in actuality, a combination of git fetch and git merge called in that order.
+        3 Git fetch:
+           Git "fetch" Downloads commits, objects and refs from another repository. It fetches branches and tags from one or more repositories.
+
+2. What is git merge and git rebase,expalin the scenarios where they are used ?
+Ans: Git merge is a command that allows you to merge branches from Git. Git rebase is a command that allows developers to integrate changes from one branch to another. 
+        In Git Merge logs will be showing the complete history of the merging of commits.
+
+3. Why do we require git cherry picking ?
+Ans: Cherry picking is the act of picking a commit from a branch and applying it to another. git cherry-pick can be useful for undoing changes. 
+        For example, say a commit is accidently made to the wrong branch. You can switch to the correct branch and cherry-pick the commit to where it should belong.
+
+4. What is the purpose of git ignore ?
+Ans: The purpose of gitignore files is to ensure that certain files not tracked by Git remain untracked. To stop tracking a file that is currently tracked, use git rm --cached.
+
+5. What is git stash ?
+Ans: Git stash temporarily shelves (or stashes) changes you've made to your working copy so you can work on something else, and then come back and re-apply them later on.
+
+6. How to maintainer release info in git (git tags) ?
+Ans: Manage Git Releases from Tags on GitHub
+        1.Set the Target Branch. For new tags, you'll also need to select the target branch for the tag by using the "Target" dropdown menu.
+        2.Add a Title and Description. ...
+        3.Attach Files. ...
+        4.Mark as Pre-Release. ...
+        5.Publish the Release. 
+
+
+
+Jenkins Interview Questions and Answers
+=================================================
+1. Explain the setup process of Master/Salve and in which scenario did you implement it ?
+Ans: Jenkins uses a Master-Slave architecture to manage distributed builds. In this architecture, Master and Slave communicate through TCP/IP protocol.
+        Jenkins Master:-
+          - Your main Jenkins server is the Master. The Master’s job is to handle:
+          - Scheduling build jobs.
+          - Dispatching builds to the slaves for the actual execution.
+          - Monitor the slaves (possibly taking them online and offline as required).
+          - Recording and presenting the build results.
+          - A Master instance of Jenkins can also execute build jobs directly.
+        Jenkins Slave:-
+         - A Slave is a Java executable that runs on a remote machine. Following are the characteristics of Jenkins Slaves:
+         - It hears requests from the Jenkins Master instance.
+         - Slaves can run on a variety of operating systems.
+         - The job of a Slave is to do as they are told to, which involves executing build jobs dispatched by the Master.
+         - You can configure a project to always run on a particular Slave machine or a particular type of Slave machine, or simply let Jenkins pick the next available Slave.
+
+       Jenkins checks the Git repository at periodic intervals for any changes made in the source code.
+       Each builds requires a different testing environment which is not possible for a single Jenkins server. In order to perform testing in different environments, Jenkins uses various Slaves.
+       Jenkins Master requests these Slaves to perform testing and to generate test reports.
+
+      Setuping a master-slave in jenkins:
+      1. create a new AWS ubuntu instance ,and name it as "Slave". Connect to the git.
+      2. Install java
+          - sudo apt-get update
+          - sudo apt-get install -y openjdk-11-jdk
+      3. Download slave.jar from master(jenkins server) give a connection btwn jenkins(master) and slave
+          -  wget http://private ipaddress of jenkins:8080/jnlpJars/slave.jar 
+      Then give the execute permission on slave.jar
+          - chmof 777 slave.jar
+      4. Create a folder for jenkins to store information related to the job
+          - mkdir workspace(my folder)
+      5. Setup a passwordless SSH connection between master and slave on slave machine
+          - set passwd for default ubuntu user
+          --- sudo passwd ubuntu
+          - edit the sshd config gile
+          --- sudo vim /etc/ssh/sshd_config
+               in this serch for a "passwordauthentication" and change it from "no" to "yes" then save and quit(:wq)   
+          - then restart the ssh service           
+          --- sudo service ssh restart
+      On Master:
+       1.  generate a ssh key
+              ssh-keygen
+       2. copy the keys
+              ssh-copy-id ubuntu@privateip of slave
+       3. then open a jenkins dashboard   
+            -> manage jenkins
+            -> manage nodes --> new node(nodename)
+            -> select permenant agent -> ok
+            -> enter remote root directory ---> /home/ubuntu/workspace
+       4. lable: myslave(alias)
+       5. launch -> lunch agent via execution of command on master 
+            -> ssh ubuntu@ip addressofslave java -jar slave.jar
+            -> save
+            -> go back to the dashborad and run the job (configure)
+            -> goto the general section
+            -> restrict where this project can be run and then enter the slave label as myslave --> save
+
+2. What is the difference between scripted pipleine and declarative pipeline and which ondi you use ?
+Ans: Scripted pipeline:
+           Scripted Pipeline is the original pipeline syntax for Jenkins, and it is based on Groovy scripting language. In Scripted Pipeline, the entire workflow is defined in a single file called a Jenkinsfile.
+           The Jenkinsfile is written in Groovy and is executed by the Jenkins Pipeline plugin. Scripted Pipeline provides a lot of flexibility and control over the workflow, 
+           but it can be more complex and verbose than Declarative Pipeline.
+        Declarative pipeline:
+           Declarative Pipeline is a more recent addition to Jenkins and provides a more structured and simpler syntax for defining pipelines. Declarative Pipeline is based on the Groovy programming 
+           language, but it uses a YAML-based syntax for defining the pipeline. The main benefit of Declarative Pipeline is its readability and ease of use, as it is designed to be more intuitive and
+           less verbose than Scripted Pipeline
+
+        Syntax:  The syntax for Scripted Pipeline is based on Groovy scripting language, while the syntax for Declarative Pipeline is based on YAML syntax.
+        Flexibility:  Scripted Pipeline provides more flexibility and control over the pipeline workflow, while Declarative Pipeline provides a simpler and more structured syntax.
+        Error handling:  Scripted Pipeline allows for more granular error handling and recovery mechanisms, while Declarative Pipeline provides a simpler error handling mechanism that is more
+                                  intuitive and easier to understand.
+        Code reuse:  Scripted Pipeline allows for more code reuse and modularity, while Declarative Pipeline is designed to be more self-contained and less reliant on external scripts and libraries.
+        Readability:  Declarative Pipeline is designed to be more readable and easier to understand, while Scripted Pipeline can be more complex and verbose.
+
+
+3. What are plugins that you have used in Jenkins ? 
+Ans: Plugins we have used in jenkins is
+         1. Deploy to container
+         2. Copy to artifact
+         3. Role based authorization section.
+
+4. What are shared libraries in Jenkins and have you implemented them ?
+Ans: A shared library in Jenkins is a collection of Groovy scripts shared between different Jenkins jobs. To run the scripts, they are pulled into a Jenkinsfile.
+        Each shared library requires users to define a name and a method of retrieving source code. These methods include local files, Git repositories, and Jenkins SCM plugins. 
+        Optionally, users can also set a default library version.
+        Developers use shared libraries to avoid writing the same code from scratch for multiple projects. Shared libraries share code across development projects, thus optimizing the software 
+        development life cycle. This drastically cuts down time spent on coding and helps avoid duplicate code.
+        Creating a shared library also simplifies the process of pushing source code updates for a project. Updating the library source code also updates the code of every project that uses the library.
+
+        A shared library is a collection of groovy scripts shared between jenkins jobs,and they pulled into jenkinsfiles to run.each one requires users to define a name and a method of 
+        retreiving source code, it includes local files,git repo ,jenkins scm plugins, and users can also set a default library version.
+        Developers use these to avoid writing a code from scratch for multiple projects,it can share across the development projects,it saves the time spent on coding and helps avoid dupicate code.
+        creating a library also simplifies the process of pushing source code updates for a project.
+
+5. Expalin the flow of CI-CD that you have done in your projects ?
+Ans: CICD continuous integration continuous deployment
+        the flow of cicd has 5 steps:
+        1. Continuous Download:-  we download a code from github and make changes
+        2. Continuous build:- we change the code which downloads from github and apply the code 
+        3. Continuous deployment:-  it will done by the deploy team, it validates the build process to execute ,whether the code is changes or not
+        4. Continuous testing :-  it will be done by the testers  it deploy the code changes from the build stage and it tests
+        5. Continuous delivery:-  it will done by the delivery team  ,when the process has execution is successfull,they delivery the application to the client.
+
+6.What is the purpose of Multi branch pipeline and did you implement them,if so how ?
+Ans: A multibranch pipeline is a pipeline that has multiple branches. The main advantage of using a multibranch pipeline is to build and deploy multiple branches from a single repository. 
+        Having a multibranch pipeline also allows you to have different environments for different branches.
+        when developers updloads seperate functionalities code on different branches and we want to trigger ci-cd for each branch parallely we can use multi branch pipeline jobs.
+
+7.What are Webhooks ?
+Ans: If we want github to send notifications to jenkins whenever code is commited we can use webhooks.
+        Webhooks are automated messages sent from apps when something happens.
+
+
+
+
+Ansible Interview Questions and Answers
+================================================
+1. Explain handlers ?
+Ans: Handlers are modules which are executed if some other  modules is success and it make changes. It run only when notified .
+        If parent module is generated o/p is yellow,child module is executed 
+        If parent module is not generated the child module is not executed.
+
+2. What are ansible roles and what is the folder structure of roles ?
+Ans: Role is a predefined folder structure each folder is designed for a particular task,all we need to do that understanding the purpose of each of these folders and use it ,place the
+        neccessary component in that. it cannot be created whenever we want.
+
+       An Ansible role is composed of multiple folders, each of which contain several YAML files. By default, they have a main.yml file, but they can have more than one when needed.
+
+it has
+roles
+ - defaults 
+     - main.yml
+ - files
+ - handlers
+     -  main.yml
+ - meta
+     - main.yml
+ - readme.md
+ - tasks
+     - main.yml
+ - templates
+ - tests
+     - inventory 
+     - test.yml
+ - vars
+     - main.yml
+
+3. Explain the playbooks you have created and for what purpose ?
+Ans: Ansible playbooks help IT staff program applications ,services, server nodes, or other devices without the manual overhead of cheating everything from scartch. as well as the conditions,
+        variables and tasks within them can be saved , shared, or reused indefinetly.
+
+
+4. What are the modules you have used in Ansible ?
+Ans: commond      git             docker_image
+        shell        git_url         docker_container
+        user         uri              docker_login
+        file        replace
+        copy        stat
+        apt         debug
+        yum        include
+        service    pause
+
+      syntax:   ansible all /ipadress/group_name -i path of_inventary -m module_name -a (argument)
+
+5. What is inventory file ?
+Ans: The Ansible inventory file defines the hosts and groups of hosts upon which commands, modules, and tasks in a playbook operate.
+
+
+6. How can ansible playbook overcome an error and continue ?
+Ans: By default Ansible stops executing tasks on a host when a task fails on that host. You can use ignore_errors to continue on in spite of the failure. The ignore_errors directive only
+         works when the task is able to run and returns a value of 'failed'
+
+        In these we use the exception handling,whenever a particular module fails then playbooks stops there execution .If is a particular modules fails if we still want to continue 
+        the execution of the other parts of modules then we go or exception handling.
+
+7. What is the purpose of setup module ?
+Ans: This module is automatically called by playbooks to gather useful variables about remote hosts that can be used in playbooks.
+         It can also be executed directly by /usr/bin/ansible to check
+         what variables are available to a host. Ansible provides many facts about the system, automatically.
+
+8. How can we implement loops in Ansible and where did you use it ?
+Ans: when we want to execute one particular module in "n" no. of times,and the same "n" no. of modules i.e., with_items, 2)with_sequence
+  name:install s/w                 
+  hosts:all                           
+  tasks:
+ name:  "{{item}}"  
+ state:"{{item}}"
+ update_cache:{{item}}"
+with_items
+  -tree 
+   -git
+
+or
+
+ name:install / uninstall s/w  appli                
+  hosts:all                           
+  tasks:
+    name: install uninstall
+    apt: 
+      name:  "{{item.a}}"  
+      state:"{{item.b}}"
+      update_cache:{{item.c}}"
+    with_items
+       -{a:x,b:y,c:m}
+       -{a:x,b:y,c:m}
+
+9. How to execute playbooks based on a condition(when condition) ?
+Ans: You want execute the modules based on particular condition , if the condition is "true" , you want to execute the module, if not dont want to execute.
+
+
+
+
+Docker Interview Questions and Answers
+==============================================
+1. What is the difference between ADD and COPY in dockerfile ?
+Ans: First, the ADD directive can accept a remote URL for its source argument. The COPY directive, on the other hand, can only accept local files.
+        Note that using ADD to fetch remote files and copying is not typically ideal. This is because the file will increase the overall Docker image size.
+
+2. What is the difference between CMD and ENTRYPOINT in dockerfile ?
+Ans: CMD: Sets default parameters that can be overridden from the Docker command line interface (CLI) while running a docker container.
+        ENTRYPOINT: Sets default parameters that cannot be overridden while executing Docker containers with CLI parameters.
+
+3.  List the dockerfile keywords that you have used ?
+Ans: 1.FROM. The FROM keyword specifies the base image on which we want our image to be built on. ...
+        2.WORKDIR. WORKDIR sets the working directory or context inside the image we are building. ...
+        3.COPY. The COPY keyword is pretty much self-explanatory. ...
+        4.RUN. ...
+        5.EXPOSE. ...
+        6.CMD.
+
+4. Explain the microservices architecture that you have setup using docker compose ?
+Ans: Step 1: Create a project file: Open command prompt (in folder where you want to start, our case using src as root folder ) ...
+        Step 2: Create a Dockerfile : echo dockerfile>Dockerfile. ...
+        Step 3: Create a Docker Compose: Navigate to Root folder and create docker-compose. ...
+        Step 4: RUN the application:
+
+5.  Can you write a sample docker compose file to setup a multi container architecture ?
+Ans: docker compose is a yaml file in which we can configure different types of services. Then with a single command all containers will be built and fired up.
+
+        There are 3 main steps involved in using compose:
+        1. Generate a Dockerfile for each project.
+        2. Setup services in the docker-compose. yml file.
+        3. Fire up the containers.
+
+6. How do you create images in docker ?
+Ans:  Step 1: Create a Base Container. ...
+         Step 2: Inspect Images. ...
+         Step 3: Inspect Containers. ...
+         Step 4: Start the Container. ...
+         Step 5: Modify the Running Container. ...
+         Step 6: Create an Image From a Container. ...
+         Step 7: Tag the Image. ...
+         Step 8: Create Images With Tags.
+
+7. Do you have experience in setting up a docker private registry ?
+Ans:  Prerequisites
+          Step 1 — Installing and Configuring the Docker Registry
+          Step 2 — Setting Up Nginx Port Forwarding
+          Step 3 — Setting Up Authentication
+          Step 4 — Starting Docker Registry as a Service
+          Step 5 — Increasing File Upload Size for Nginx
+          Step 6 — Publishing to Your Private Docker Registry
+          Step 7 — Pulling From Your Private Docker Registry
+          Conclusion
+
+8. How can we see the logs of a container ?
+Ans: To find the container ID, use the docker ps command to list running containers. As in the image below,
+        Docker responds by listing the event logs for that specific container in the output.
+
+9. What are the different types of volumes and explain where you have used them ?
+Ans: Docker volumes are used to persist data from within a Docker container. There are a few different types of Docker volumes: host, anonymous, and, named. 
+        Knowing what the difference is and when to use each type can be difficult, but hopefully, I can ease that pain here.
+                     Volumes are the preferred mechanism for persisting data generated by and used by Docker containers. 
+        While bind mounts are dependent on the directory structure and OS of the host machine, volumes are completely managed by Docker.
+
+
+
+
+Kubernetes Interview Questions and Answers
+=============================================================
+1.  Explain the components of Master/Slave  or Explain the architecture of Kubernetes ?
+Ans:  Components of Master/Slave:-
+             Master/slave is a model of asymmetric communication or control where one device or process (the "master") 
+             controls one or more other devices or processes (the "slaves") and serves as their communication hub.
+         Architecture of Kubernetes:-
+             Kubernetes is an architecture that offers a loosely coupled mechanism for service discovery across a cluster. 
+             A Kubernetes cluster has one or more control planes, and one or more compute nodes.
+             Overall, the control plane is responsible for managing the overall cluster, exposing the application program interface (API), and for scheduling the initiation and
+             shutdown of compute nodes based on a desired configuration. 
+             Each of the compute nodes runs a container runtime like Docker along with an agent, kubelet, which communicates with the control plane. 
+             Each node can be bare metal servers, or on-premises or cloud-based virtual machines (VMs).
+
+2. Have you worked on setup of Kubenrnetes , if so explain ?
+Ans:   Kubernetes is an open-source platform for governing clusters of containerized application services. 
+          Kubernetes automates the vital aspects of container lifecycle management, including scaling, replication, monitoring, and scheduling.
+
+3. Did you work on managed kubernetes services like GKE,EKS etc ?
+Ans:   EKS:-
+       Amazon EKS is a managed Kubernetes service to run Kubernetes in the AWS cloud and on-premises data centers.
+       In the cloud, Amazon EKS automatically manages the availability and scalability of the Kubernetes control plane nodes responsible for scheduling containers, 
+       managing application availability, storing cluster data, and other key tasks. 
+       With Amazon EKS, you can take advantage of all the performance, scale, reliability, and availability of AWS infrastructure, as well as integrations with AWS networking and security services. 
+       On-premises, EKS provides a consistent, fully-supported Kubernetes solution with integrated tooling and simple deployment to AWS Outposts, virtual machines, or bare metal servers.
+     GKE:-
+       GKE is based on Kubernetes, which was initially developed by Google and later released as an open source project. 
+       GKE employs Kubernetes to manage clusters, ensuring organizations can easily deploy clusters using features like pre-configured workload settings and auto-scaling.
+
+4. What are service objects that you have used ?
+Ans:  -> ClusterIP:  Exposes a service which is only accessible from within the cluster.
+         -> NodePort: Exposes a service via a static port on each node’s IP.
+         -> LoadBalancer: Exposes the service via the cloud provider’s load balancer.
+            . Headless(choice)
+
+5. Explain the micro services architecture that you have setup in your previous project in   Kubernetes ?
+Ans: Kubernetes, aka K8S, is a container orchestration system perfect for automating the management, scaling, and deployment of microservice applications.
+        This incredibly popular framework allows you to manage hundreds or thousands of containers at production scale.
+
+6. What are the volume that you have used in Kubernetes ?
+Ans: A Kubernetes volume is a directory containing data accessible to containers in a given pod, the smallest deployable unit in a Kubernetes cluster. 
+        Within the Kubernetes container orchestration and management platform, volumes provide a plugin mechanism that connects ephemeral containers with persistent data storage.
+
+7. What are the differences between Docker swarm and Kubernetes ?
+Ans:    Point of comparison	                                               Kubernetes	                                                      Docker Swarm
+    ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  1.Installation                                                       Some what complex as you need to install                             Quick and easy setup 
+
+  2.GUI                                                                Detailed native dashboards                                          No out-of-the-box dashboards
+
+  3.Learning curve                                                     High learning curve                                                 Lightweight and easy to use
+
+  4.Cluster setup                                                      Difficult to start a cluster                                        Easy to start a cluster
+
+  5.Horizontal auto-scaling                                            Yes                                                                 No
+
+  6.Scalability                                                        All-in-one scaling based on traffic                                 Values scaling quickly 
+
+  7.Load balancing                                                     No built-in mechanism for auto load-balancing                       Internal load balancing
+
+  8.Availability features                                              Self-healing, intelligent scheduling, and replication features      Availability controls and service duplication
+
+
+8.  Why do we need container orchestration tools ?
+Ans:  Container orchestration can be used in any environment where you use containers.
+         It can help you to deploy the same application across different environments without needing to redesign it. 
+         And microservices in containers make it easier to orchestrate services, including storage, networking, and security.
+
+9. Can you write a deployment defintion file ?
+Ans:  A Deployment provides declarative updates for Pods and ReplicaSets.
+         We describe a desired state in a Deployment, and the Deployment Controller changes the actual state to the desired state at a controlled rate. 
+         We can define Deployments to create new ReplicaSets, or to remove existing Deployments and adopt all their resources with new Deployments.
+
+10. What are statefulsets and where have you used them ?
+Ans:  StatefulSet is the workload API object used to manage stateful applications.
+         Manages the deployment and scaling of a set of Pods, and provides guarantees about the ordering and uniqueness of these Pods. 
+         Like a Deployment, a StatefulSet manages Pods that are based on an identical container spec.
+         StatefulSets are typically used for applications that require persistent storage for stateful workloads, and ordered, automated rolling updates.
+
+11. Have you used helm charts and what is the advantage ?
+Ans:  A helm chart makes it easy to set overridable defaults in the values. 
+         yaml file, allowing software vendors or administrators of charts to define a base set. 
+         Developers and users of Helm charts can override these settings when installing their charts as per their needs.
+       Advantages:-
+          . Boosts productivity
+          . Reduces the complexity of deploying Microservices
+          . Enhances deployment speed
+
+12. What is the command to create a helm chart ?
+Ans: Command: helm create mychart
+
+13. List out the important object that you used in Kubernetes ?
+Ans:  i. Pod: It is a layer of abstraction on the top of the docker container.
+        ii. Service: Services provide a way to expose applications running in pods.
+       iii. NameSpace: The purpose of the Namespace object is to act as a separator of resources in the cluster.
+       iv. Replication Controller: ReplicationControllers ensure that the correct number of pod replicas are running on the cluster at all times.
+        v. ReplicaSet: ReplicaSets serve the same purpose as ReplicationControllers, i.e. maintaining the same number of pod replicas on the cluster.
+       vi. Deployment: Deployments are controller objects that provide instructions on how Kubernetes should manage the pods hosting a containerized application.
+      vii. StatefulSet: While Deployments and Replication Controllers can handle stateless apps, stateful apps require a workload object called StatefulSet.
+     viii. Persistent Volumes: It is used to back of the data.
+      ix. Persistent VolumeClaim: Out of the complete data , it resource a section of data for the volumes.
+       x. Horizontal Pod Autoscaller: The k8s have the intelligence to increase the number of pods and decrease the number of pods.
+
+14. What is the command to see the pod logs ?
+Ans:  Command: kubectl get pods
+
+15. If a pod doesnt start what trouble shooting steps will you perform
+   (Explain about kubect logs,kubectl describe,kubectl exec commands) ?
+Ans: . Kubectl logs: This allows you to stream the logs in real time from the running container. 
+                                We might use this when you're live dubbing some issue or want to see what happens in the application when you're using it.
+      
+        . Kubectl describe: The kubectl describe pods command provides detailed information about each of the pods that provide Kubernetes infrastructure. 
+                                       If the output from a specific pod is desired, run the command kubectl describe pod pod_name --namespace kube-system .
+
+        . Kubectl exec: The kubectl exec command lets we start a shell session inside containers running in your Kubernetes cluster.
+                                This command lets you inspect the container's file system, check the state of the environment and perform advanced debugging tools when logs alone don't provide 
+                                enough information.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,31 @@
+1.1Q)self introduction
+
+  i'm parasuramudu koppada
+  
+  i'm from narasapur, currently living in hyderabad with my brother's house.
+  
+  i have completed my graduation from untu univarcity, year of 2012.
+
+profile: 
+      As aws cloud technical associate, passionate about designing, coding and deploying applications                  from scratch and scaling existing systems. Designed and developed end-to-end solutions in multiple products along with supporting customers and solving their problems by taking up challenges and build robust solutions to complex problems. Also, adopting to building cloud native solutions, modernizing the applications, and deploying them to cloud platforms. 8+years of overall experience in java technologies, Agile methodology, Sprint releases, Code reviews, Defect triaging and delivery management.
+
+project:
+  Merchant organization scheme - domain of this project is ERP sales - client is tryka uk
+role:
+  Devops Technical Associate or Devops engineer
+responsibilities:
+     	Proficient in infrastructure as code, automation, and cloud-native architectures using Terraform.
+     	Designed and implemented Kubernetes clusters on AWS for microservices-based applications,      optimizing scalability and resilience.
+     	Leveraged Terraform to provision infrastructure as code, reducing deployment time by 30% and ensuring consistency.
+     	Implemented Jenkins CI/CD pipelines for automated deployment and testing, resulting in a 40% reduction in release cycles.
+     	Orchestrated migration of legacy applications to Kubernetes, improving resource utilization and reducing operational overhead.
+     	troubleshooting efforts during critical incidents, minimizing downtime and improving system reliability.
+     	Implemented custom monitoring and alerting using Prometheus and Grafana, leading to proactive issue detection and resolution.
+     	Collaborated with security teams to establish Role-Based Access Control (RBAC) and enforce Pod Security Policies.
+     	Automated routine tasks using Python scripts, enhancing operational efficiency and reducing manual intervention.
+
+Major Modules:
+       ERP sales,services, Leads, Opportunities, Emails, Contacts. 
+
+recent task: 
+     i have designed customized docker images and manifest files for application deploymet usong doccekr and kubernetes.

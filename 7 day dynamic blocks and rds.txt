@@ -1,0 +1,55 @@
+loops and dynamic blocks :
+--------
+covered count based loops - resource level
+
+for each loops - resource level
+
+count based loops - security group rules creation
+
+RDS:
+----
+database 
+    Mysql
+    Oracle
+    Postgres
+    MSSQL
+java application --> it needs to connect RDS
+
+we will keep password in secret .. we will refer this secret from secret manager
+
+to save some cost:
+-----------------
+i will delete all terraform resources include secret.
+tomorrow will create resources again.
+
+we create seceret manually ,but we store values through terraform
+
+you can query existing resources usin data source..
+
+how to create tf resources in multiple environments:
+---------------------------------------------------- 
+1. our own module
+2.opensource module
+
+Devops and cloud engineer:
+---------------------------
+infra engineer
+application devops/eks engineer 
+
+---
+users:
+  user:
+    id: 1
+    username: ram
+    password: ram
+    email: ram@gmail.com
+    firstname: k
+    lastname: ram
+  user:
+    id: 2
+    username: ram
+    password: ram
+    email: ram@gmail.com
+    firstname: k
+    lastname: ram
+...

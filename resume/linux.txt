@@ -1,0 +1,55 @@
+linux:
+
+[Your Name]
+[Your Address]
+[City, State, ZIP]
+[Phone Number]
+[Email Address]
+[LinkedIn Profile]
+
+**Professional Summary:**
+Results-driven DevOps Engineer with 4+ years of experience specializing in Linux-based infrastructure management, automation, and deployment. Proficient in designing and implementing scalable solutions that enhance development workflows, improve system reliability, and optimize resource utilization. Adept at collaborating with cross-functional teams and leveraging technology to drive efficiency.
+
+**Skills:**
+- Linux System Administration
+- Infrastructure as Code (IaC) - Ansible, Terraform
+- Containerization - Docker, Kubernetes
+- Continuous Integration and Continuous Deployment (CI/CD)
+- Shell Scripting - Bash
+- Cloud Platforms - AWS, Azure
+- Monitoring and Logging - Prometheus, Grafana, ELK Stack
+- Configuration Management
+- Network Administration and Security
+- Problem Solving and Troubleshooting
+
+**Professional Experience:**
+
+**DevOps Engineer | [Company Name] | [City, State] | [Month Year] - Present**
+- Managed and optimized Linux-based infrastructure, leading to a 30% reduction in system downtime.
+- Automated deployment processes using Ansible, reducing manual intervention and ensuring consistent configurations.
+- Implemented Docker for containerization, resulting in streamlined deployments and improved resource utilization.
+- Collaborated with development teams to design and implement CI/CD pipelines using Jenkins, accelerating software delivery by 40%.
+- Developed shell scripts to automate routine tasks, increasing operational efficiency by 25%.
+- Designed and maintained Kubernetes clusters for container orchestration, enabling scalable and resilient application deployments.
+- Implemented monitoring and alerting using Prometheus and Grafana, leading to proactive issue detection and quicker incident response.
+- Conducted regular security assessments, applying best practices and ensuring compliance with industry standards.
+
+**DevOps Engineer | [Company Name] | [City, State] | [Month Year] - [Month Year]**
+- Managed Linux server environments, ensuring optimal performance, security, and availability.
+- Utilized Terraform to provision and manage cloud resources on AWS, automating infrastructure deployment.
+- Collaborated with development teams to integrate CI/CD pipelines with Jenkins, enabling automated testing and deployment.
+- Configured and managed ELK Stack for centralized log management and analysis, improving troubleshooting efficiency.
+- Implemented security measures such as firewalls, SSL certificates, and access controls, enhancing system security.
+
+**Education:**
+[Bachelor's/Master's] in [Your Field] | [University Name] | [City, State] | [Graduation Year]
+
+**Certifications:**
+- [Certification Name] | [Certifying Organization] | [Year]
+- [Certification Name] | [Certifying Organization] | [Year]
+
+**Languages:**
+- Fluent in [Languages, e.g., English]
+
+**References:**
+Available upon request.

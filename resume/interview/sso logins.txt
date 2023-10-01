@@ -1,0 +1,22 @@
+sso logins:
+===========
+development accounts:
+---------------------
+AWS access portal URL: https://d-91672d6a25.awsapps.com/start, 
+Username: parasu1, 
+One-time password: L/tW$GYhJNKo-D8?IAnUMi2NVLic2ko6TUJ_VhP9T8n0uK5$401?>
+
+
+SIT:
+----
+
+AWS access portal URL: https://d-91672d6a25.awsapps.com/start,
+Username: parasu2, 
+One-time password: qRq?FY?Jus.^fEy80Cp<PL8rpSqBMq7O#X*vJYD&QaQMw@H2Sj^YOmr2.T1d>Q?pg1.oxwpGz
+
+UAT:
+----
+
+AWS access portal URL: https://d-91672d6a25.awsapps.com/start,
+Username: parasu3,
+One-time password: 0<L81e-kYCJ%@&ycAvt.xf-3XaMRccfPf9m$rzK./e/9!)qp577d.$<P1GGo

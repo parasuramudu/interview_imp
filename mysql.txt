@@ -1,0 +1,5 @@
+admin
+
+parasuram
+
+prod.cy076odlrdes.us-west-1.rds.amazonaws.com

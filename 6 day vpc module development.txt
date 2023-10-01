@@ -1,0 +1,69 @@
+vpc module development
+-------------------
+DRY:
+---
+1.centralised code to implement best standards
+2.you no need write code from scratch again and again
+
+VPC:
+---
+vpc 
+igw
+2 public subnets
+2 private subnets
+2 database subnets
+public ,private, and database route tables
+associations
+eip
+nat gatway
+
+user can select any region ,but we want 1a and 1b az
+
+use locals,data source and functions  concept to get az details automatically
+
+ azs_names = ["ap-south-1a","ap-south-1b","ap-south-1c",]
+0,1,2
+
+terraform slice function:
+-------------------------
+slice(list,startindex,endindex)
+slice(az_names,0,2)
+ap-south-1a
+
+public subnet --> project-A-public-1a,project-A-private-1b
+
+ap-south-1a --> 1a = using split - and get the last element
+ap-south-1b -->1b
+
+split_list = [
+      + "ap",
+      + "south",
+      + "1a",
+    ]  
+now got last elements:
+last_element = [
+      + "1a",
+      + "1b",
+    ]
+
+release flow:
+-------------
+
+as a module developer i created firtst version of terraform-aws-vpc module
+users started using it.
+
+as module developer you may apply chages, do it in a proper flow..
+
+module developer:
+-----------------
+as module developer need to add versions
+
+v0.0.1
+
+v0.0.2
+------
+as a module developer need to provide output values to users..
+
+we want to create security group for RDS:
+-----------------------------------------:
+inbound 5432 postgres -> for creating security group need vpc_id

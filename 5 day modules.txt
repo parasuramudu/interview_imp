@@ -1,0 +1,24 @@
+module develepment:
+-------------------
+DRY --> don't repeat yourself
+
+1.don't hardcode
+2.centralised place
+3.validations, you are enforcing some standards
+
+min code and max work
+100 lines of code to do one work -->bad
+10 lines to do same work --> good
+
+write one common code,parameterise it 
+      you can follow best standards and ask all to use that less code,change here it will be                          
+automatically reflected in all projects
+
+all teams can use same code with diff variables
+
+1000 project their own code... you need to update all 1000 projects
+
+VPC module:
+----------- 
+1) open source modules
+2) user own modules

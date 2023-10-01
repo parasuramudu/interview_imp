@@ -1,0 +1,308 @@
+python code examples
+
+palindrome:
+
+def is_palindrome(input_str):
+    input_str = input_str.lower()  # Convert to lowercase for case-insensitive comparison
+    length = len(input_str)
+
+    for i in range(length // 2):
+        if input_str[i] != input_str[length - 1 - i]:
+            return False  # If characters at symmetric positions don't match, it's not a palindrome
+
+    return True  # If the loop completes without finding a mismatch, it's a palindrome
+
+input_str = "racecar"  # Change this to the string you want to check
+result = is_palindrome(input_str)
+
+if result:
+    print(f"'{input_str}' is a palindrome.")
+else:
+    print(f"'{input_str}' is not a palindrome.")
+
+==========================
+
+find word given string:
+
+def find_word(text, target_word):
+    text_length = len(text)
+    word_length = len(target_word)
+
+    for i in range(text_length - word_length + 1):
+        match = True
+        for j in range(word_length):
+            if text[i + j] != target_word[j]:
+                match = False
+                break
+        if match:
+            return i  # Return the index where the word was found
+
+    return -1  # Return -1 if the word was not found in the text
+
+
+def main():
+    text = "This is a sample text. Find the word 'sample' in this text."
+    target_word = "sample"
+
+    index = find_word(text, target_word)
+
+    if index != -1:
+        print(f"The word '{target_word}' was found at index {index}")
+    else:
+        print(f"The word '{target_word}' was not found in the text.")
+
+
+if __name__ == "__main__":
+    main()
+
+=====================
+
+revese string:
+
+def reverse_string(input_str):
+    reversed_str = ""
+    
+    for char in input_str:
+        reversed_str = char + reversed_str
+
+    return reversed_str
+
+def main():
+    input_str = "Hello, World!"
+    reversed_str = reverse_string(input_str)
+    print("Original String:", input_str)
+    print("Reversed String:", reversed_str)
+
+if __name__ == "__main__":
+    main()
+=========================
+
+reverse number:
+
+def reverse_number(number):
+    reversed_num = 0
+
+    while number != 0:
+        digit = number % 10
+        reversed_num = reversed_num * 10 + digit
+        number = number // 10
+
+    return reversed_num
+
+number = 23546
+reversed_number = reverse_number(number)
+
+print("Original Number:", number)
+print("Reversed Number:", reversed_number)
+
+
+===================
+2 def reverse_number(number):
+    number_str = str(number)
+    reversed_str = ""
+
+    for digit in number_str:
+        reversed_str = digit + reversed_str
+
+    reversed_num = int(reversed_str)
+    return reversed_num
+
+number = 23546
+reversed_number = reverse_number(number)
+
+print("Original Number:", number)
+print("Reversed Number:", reversed_number)
+
+=====================
+
+3 swap two values:
+
+# Initial values
+num1 = 5
+num2 = 10
+
+print("Before swapping:")
+print("num1 =", num1)
+print("num2 =", num2)
+
+# Swap the values using a temporary variable
+temp = num1
+num1 = num2
+num2 = temp
+
+print("\nAfter swapping:")
+print("num1 =", num1)
+print("num2 =", num2)
+
+========================
+
+swap two numbers:
+
+# Initial values
+num1 = 5
+num2 = 10
+
+print("Before swapping:")
+print("num1 =", num1)
+print("num2 =", num2)
+
+# Swap the values without a temporary variable
+num1 = num1 + num2
+num2 = num1 - num2
+num1 = num1 - num2
+
+print("\nAfter swapping:")
+print("num1 =", num1)
+print("num2 =", num2)
+
+In this code, we initially have two variables num1 and num2 with values 5 and 10, respectively. To swap these values without a temporary variable, we perform the following operations:
+
+Add num1 and num2 and store the result in num1. This effectively combines the two values into num1.
+Subtract the original value of num2 (which is now in num1) from num2 to get the original value of num1 in num2.
+Finally, subtract the original value of num1 (which is now in num2) from num1 to complete the swap.
+After these operations, the values of num1 and num2 are swapped.
+
+============================
+recorsive:
+
+def swap_recursive(num1, num2, depth=0):
+    if depth == 0:
+        print("Before swapping:")
+        print("num1 =", num1)
+        print("num2 =", num2)
+
+    if depth < 1:
+        # Base case: Swap the values
+        num1 = num1 + num2
+        num2 = num1 - num2
+        num1 = num1 - num2
+
+    if depth == 0:
+        print("\nAfter swapping:")
+        print("num1 =", num1)
+        print("num2 =", num2)
+    else:
+        return num1, num2
+
+    # Recursive call (optional)
+    if depth < 1:
+        num1, num2 = swap_recursive(num1, num2, depth + 1)
+
+    return num1, num2
+
+num1 = 5
+num2 = 10
+
+num1, num2 = swap_recursive(num1, num2)
+
+
+In this code, we define a swap_recursive function that takes two numbers (num1 and num2) and an optional depth parameter to control the recursion. The base case (when depth is 0) performs the swapping of values, and we use the depth parameter to ensure that the base case is executed only once. After the swap, we print the values before and after the swap.
+
+You can call the swap_recursive function with your initial values for num1 and num2. The values of num1 and num2 will be swapped recursively within the function.
+
+-===========================
+
+ remove word from string:
+
+input_string = "this is a teachers day"
+substring_to_remove = "teachers"
+
+words = input_string.split()  # Split the input string into words
+result = ""
+
+for word in words:
+    if word != substring_to_remove:
+        result += word + " "
+
+# Remove the trailing space at the end
+result = result.strip()
+
+print(result)
+
+=======================
+
+from string remove white spaces
+
+input_string = "This is a string with spaces."
+result_string = ""
+
+for char in input_string:
+    if char != " ":
+        result_string += char
+
+print(result_string)
+
+====================
+
+prime number:
+
+num = int(input("Enter a number: "))
+
+if num < 2:
+    is_prime = False
+else:
+    is_prime = True
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            is_prime = False
+            break
+
+if is_prime:
+    print(num, "is a prime number.")
+else:
+    print(num, "is not a prime number.")
+In this code:
+
+We take an integer input from the user.
+We check if the number is less than 2; if it is, we consider it not prime.
+If the number is greater than or equal to 2, we iterate from 2 to the square root of the number and check if the number is divisible by any of these values. If it is, we set is_prime to False and break out of the loop.
+After the loop, if is_prime is still True, then the number is prime; otherwise, it's not prime.
+
+===================
+multiplication:
+
+# Input the two numbers
+num1 = float(input("Enter the first number: "))
+num2 = float(input("Enter the second number: "))
+
+# Multiply the two numbers
+result = num1 * num2
+
+# Display the result
+print("The result of multiplying", num1, "and", num2, "is:", result)
+
+=================
+
+# Function to check if a number is an Armstrong number
+def is_armstrong(number):
+    # Convert the number to a string to count its digits
+    num_str = str(number)
+    n = len(num_str)
+    
+    # Calculate the sum of digits, each raised to the nth power
+    sum_of_powers = sum(int(digit) ** n for digit in num_str)
+    
+    # Check if the sum is equal to the original number
+    return sum_of_powers == number
+
+# Input a number from the user
+num = int(input("Enter a number: "))
+
+# Check if it's an Armstrong number and print the result
+if is_armstrong(num):
+    print(num, "is an Armstrong number.")
+else:
+    print(num, "is not an Armstrong number.")
+
+============================
+
+# Two strings
+str1 = "Hello, "
+str2 = "World!"
+
+# Concatenate the strings
+concatenated_str = str1 + str2
+
+# Print the result
+print(concatenated_str)
+

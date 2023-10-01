@@ -1,0 +1,28 @@
+Company: CreditVidya
+Role: DevOps Engineer
+Experience: 4-5 years in a fintech/payment based company.
+Budget: 15-30 LPA.
+Location: Work from office, Hyderabad.
+
+Skills & Expertise 
+Shell Scripting, Jenkins, Unix Administration
+
+Roles & Responsibilities
+Job Description
+CreditVidya is changing the way lending happens with mobile as the centre of that change. CreditVidya aims to bring the difference to the lives of people who have been outside of the formal financial ecosystem.
+If you wish to be part of the most sophisticated Devops team to use cutting edge technologies for application resilience, automate, manage, and maintain infrastructure, then this might be the right opportunity for you.
+What we are looking for
+Amazing zeal to learn and passion to make the difference.
+Responsibilities
+Build and maintain systems on the cloud efficiently, demonstrating application support capabilities
+Manage smooth CI/CD pipeline and improve the maturity of DevOps practices(Includes security measures)
+Implement/leverage efficient monitoring and alerting system to assure high available and stable production systems
+Assure 99.99% production up-time metrics along with best-optimized performance tuning, end-to-end troubleshooting, and networking skills
+Maintain and manage different development and production environments
+Requirements
+Minimum 3+ years of overall experience with aws cloud services.
+Strong fundamentals - Unix administration, Networking, Scripting
+Working experience of containerization, Prometheus,  Jenkins [CI/CD]
+Working experience on any automation tools.
+Very good analytical and problem-solving ability.
+Bonus: any devops related certifications

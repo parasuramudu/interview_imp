@@ -1,0 +1,114 @@
+setup environment and introduction
+===================================
+
+vs code --> IDE download and install on windows
+git bash --> CMD prompt install on windows
+aws cli v2 -->aws cli install om windows
+
+terraform download and install
+==============================
+goto this url: 
+https://developer.hashicorp.com/terraform/downloads
+
+1) select windows option --> click to download AMD64
+
+2) extract the folder--> create softwares folder in the c:/software
+
+3) set the environment variable path:C:/fostwares
+
+4) goto aws cloud --> create iam user with adminstrationaccess
+
+5) click on (terraform) iam user name -->down select security credentials
+   -->access key sectioin-->click on create access key-->select commandlineinterface(cli)
+   -->accept conditions-->click on next-->click create access key. 
+   it will generate access key and secret access key tokens.
+
+6) go to git bash :
+ type : aws configure
+        access key: provide access key token here
+        secret access key: provide secret access key token here
+        rigion : ap-south-1
+
+7) click on create bucket 
+      Bucket name: parasuk
+      aws Region: asia pacific (mumbai)ap-south-1
+       
+      object ownership: ACLs disabled
+
+      Block all public access: unselect
+     
+      bucket versioning: Enable option
+      
+      remaining all options are default--> click on create bucket
+
+8) goto git bash and type: aws s3 ls
+   
+   this command will show you bucket name(parasuk)
+   
+   then only aws cli and aws cloud connection astablished. 
+ 
+VPC resources:
+=============
+Internet Gateway
+public subnet
+private subnet
+public route table
+private route table
+nat gateway
+associations 
+
+waht is terraform? what are the advantages?
+ 
+IaaC --> infra as a code
+
+1. Automated infra CRUD [create,read,update and delete]
+   
+ with in minutes you can create entire infra structure.
+
+2.Version control:
+==================
+since it is code, we can keep it in Git and track it properly,it is easy to collobarate also with team members, you can maintain versions of infra.
+
+3. Consistent infra:
+====================
+using terraform code,you can create similar infra in all environments without duplicating the code.
+
+4.inventory management:
+=======================
+by seeing terraform code we can understand the resources what we are using,you no need to go to console and fetch the report.
+
+5.Cost Optimization:
+====================
+it can destroy the infra with in minutes so that we can reduse cost and other problem forgetting resources to delete.
+
+6.Automatic dependency resolution:
+==================================
+terraform will take care of dependency resolution while creating resources as well as deleting the resources.
+
+7.Moduler infra:
+================
+Code reuse, you can have terraform modules created,any number of projects can call this modules to create infra instead of writing from the scratch again.
+
+some standards
+
+ DRY --> Don't repeat yourself.
+ Project A --> they can simply call central code
+ Project b --> they can simply call central code
+         '
+         '
+         '
+ project N --> they can simply call central code
+ 
+ Central Code --> comman terraform code, best standards ,security policies.
+
+terraform commands:
+=====================
+terraform init --> to download the providers and other configuration.
+terraform plan --> to will not create the resources,it will give us an idea of what it is going to create
+
+terraform apply --> create the resources
+terraform destroy --> deletes the resources.
+
+RDS --> private
+
+RDS --> need some updates

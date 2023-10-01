@@ -1,0 +1,82 @@
+provider "aws" {
+  region = "us-west-1" # Change this to your desired region
+}
+
+resource "aws_vpc" "vpc1" {
+  cidr_block = "10.0.0.0/16"
+}
+
+resource "aws_vpc" "vpc2" {
+  cidr_block = "10.1.0.0/16"
+}
+
+resource "aws_vpc" "vpc3" {
+  cidr_block = "10.2.0.0/16"
+}
+
+resource "aws_subnet" "subnet1" {
+  count = 3
+
+  vpc_id     = aws_vpc.vpc1.id
+  cidr_block = "10.0.${count.index}.0/24"
+}
+
+resource "aws_subnet" "subnet2" {
+  count = 3
+
+  vpc_id     = aws_vpc.vpc2.id
+  cidr_block = "10.1.${count.index}.0/24"
+}
+
+resource "aws_subnet" "subnet3" {
+  count = 3
+
+  vpc_id     = aws_vpc.vpc3.id
+  cidr_block = "10.2.${count.index}.0/24"
+}
+
+resource "aws_ec2_instance" "instance1" {
+  count         = 3
+  ami           = "ami-12345678" # Replace with a valid AMI ID
+  instance_type = "t2.micro"
+  subnet_id     = aws_subnet.subnet1[count.index].id
+}
+
+resource "aws_ec2_instance" "instance2" {
+  count         = 3
+  ami           = "ami-12345678" # Replace with a valid AMI ID
+  instance_type = "t2.micro"
+  subnet_id     = aws_subnet.subnet2[count.index].id
+}
+
+resource "aws_ec2_instance" "instance3" {
+  count         = 3
+  ami           = "ami-12345678" # Replace with a valid AMI ID
+  instance_type = "t2.micro"
+  subnet_id     = aws_subnet.subnet3[count.index].id
+}
+
+resource "aws_ec2_transit_gateway" "transit_gateway" {
+  description = "Transit Gateway for VPC Communication"
+}
+
+resource "aws_ec2_transit_gateway_vpc_attachment" "attachment" {
+  count             = 3
+  transit_gateway_id = aws_ec2_transit_gateway.transit_gateway.id
+  vpc_id            = aws_vpc.vpc1.id
+
+  subnet_ids = [aws_subnet.subnet1[count.index].id]
+}
+
+# Allow communication between VPCs using Transit Gateway
+resource "aws_ec2_transit_gateway_route" "route_to_vpc2" {
+  transit_gateway_route_table_id = aws_ec2_transit_gateway.transit_gateway.default_route_table_id
+  destination_cidr_block        = aws_vpc.vpc2.cidr_block
+  transit_gateway_attachment_id = aws_ec2_transit_gateway_vpc_attachment.attachment[0].id
+}
+
+resource "aws_ec2_transit_gateway_route" "route_to_vpc3" {
+  transit_gateway_route_table_id = aws_ec2_transit_gateway.transit_gateway.default_route_table_id
+  destination_cidr_block        = aws_vpc.vpc3.cidr_block
+  transit_gateway_attachment_id = aws_ec2_transit_gateway_vpc_attachment.attachment[0].id
+}

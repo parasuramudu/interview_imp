@@ -1,0 +1,52 @@
+git:
+
+[Your Name]
+[Your Address]
+[City, State, ZIP]
+[Phone Number]
+[Email Address]
+[LinkedIn Profile]
+
+**Professional Summary:**
+DevOps Engineer with 4+ years of experience specializing in Git-based version control, automation, and CI/CD workflows. Adept at optimizing software delivery pipelines and fostering collaboration between development and operations teams. Proficient in implementing Infrastructure as Code (IaC) and leveraging Git for streamlined code management.
+
+**Skills:**
+- Git Version Control
+- Continuous Integration and Continuous Deployment (CI/CD)
+- Infrastructure as Code (IaC) - Terraform
+- DevOps Tools - Jenkins, Docker, Kubernetes
+- Scripting - Bash, Python
+- Automated Testing and Quality Assurance
+- Deployment Strategies - Blue-Green, Canary, Rolling
+- Monitoring and Logging - Prometheus, Grafana
+- Security and Compliance Integration
+
+**Professional Experience:**
+
+**DevOps Engineer | [Company Name] | [City, State] | [Month Year] - Present**
+- Designed and implemented end-to-end CI/CD pipelines leveraging Git, Jenkins, and Docker, reducing release cycles by 30%.
+- Spearheaded the adoption of Git workflows and branching strategies, enhancing code collaboration and version control.
+- Utilized Terraform to create Infrastructure as Code, automating server provisioning and scaling for applications.
+- Integrated automated testing suites into pipelines, ensuring consistent code quality and early issue identification.
+- Collaborated with security teams to implement vulnerability scanning and compliance checks in CI pipelines.
+- Orchestrated blue-green and rolling deployment strategies for zero-downtime releases, enhancing user experience.
+- Developed Git hooks and scripts to automate code formatting, linting, and pre-commit checks.
+
+**DevOps Engineer | [Company Name] | [City, State] | [Month Year] - [Month Year]**
+- Managed Git repositories and branches, resolving merge conflicts and ensuring a smooth development workflow.
+- Configured Jenkins jobs to trigger builds and deployments based on Git commits and pull requests.
+- Leveraged Docker to containerize applications, facilitating consistent deployment across different environments.
+- Collaborated with cross-functional teams to troubleshoot and resolve Git-related issues and pipeline failures.
+- Implemented Git tags and semantic versioning for accurate release management.
+
+**Education:**
+[Bachelor's/Master's] in [Your Field] | [University Name] | [City, State] | [Graduation Year]
+
+**Certifications:**
+- [Certification Name] | [Certifying Organization] | [Year]
+
+**Languages:**
+- Fluent in [Languages, e.g., English]
+
+**References:**
+Available upon request.

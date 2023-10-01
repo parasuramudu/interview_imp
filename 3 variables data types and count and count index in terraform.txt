@@ -1,0 +1,78 @@
+datatypes:
+==========
+number
+string
+bool
+map 
+list
+
+security group:
+==============
+first we need to create vpc
+create security group
+
+count and count index
+=====================
+we have a task of creating 3 ec2 instances
+
+1.web server
+2.api se rver
+3.bd server
+
+using count and count-index done the task
+
+conditions:
+==========
+
+if environment is prod create t3.large and if environment is not prod create t2.micro
+
+expression ? "this will run if it is true" : "this will run if it is false"
+
+functions:
+===========
+it can do a unit of work whenever you ask
+
+function_name(){
+   some thing
+}
+
+EC2 instance:
+============
+attach public key to the server,
+you have private key in your laptop
+
+then you will use private key to login
+
+ssh-keygen -f terraform --> terraform pub key and terraform private key
+
+common_tags:
+------------
+default = {
+   Name = "timing"
+   Terraform = "true"
+   Environment = "DEV"
+}
+
+what if i want a different name for sg
+--------------------------------------:
+merge(var.tags,{Name = "timing-rds-sg"})
+
+Loops:
+------
+for(i=0 ;i<=3 ;i++){
+ print "value: $i"
+}
+
+count based loop:
+-----------------
+
+for_each loop:
+--------------
+i want to create 3 public subnets
+
+high availability
+-----------------
+atleast 3 AZ
+       north-mumbai
+       south-mumbai
+       east-mumbai

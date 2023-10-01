@@ -1,0 +1,51 @@
+kubernetes:
+
+[Your Name]
+[Phone Number] | [Email Address] | [LinkedIn Profile]
+
+**Professional Summary:**
+Results-driven Kubernetes Engineer with 4 years of experience specializing in designing, deploying, and managing scalable containerized applications on Kubernetes clusters. Proficient in infrastructure as code, automation, and cloud-native architectures. Adept at collaborating with cross-functional teams to drive successful projects.
+
+**Skills:**
+- Kubernetes Administration and Orchestration
+- Infrastructure as Code (IaC) - Terraform, Helm
+- Containerization - Docker, Podman
+- Cloud Platforms - AWS, GCP
+- CI/CD Pipelines - Jenkins, GitLab CI/CD
+- Monitoring and Logging - Prometheus, Grafana, ELK Stack
+- Networking - Service Mesh (Istio), Load Balancing
+- Security - RBAC, Pod Security Policies
+- Scripting - Bash, Python
+- Version Control - Git
+
+**Professional Experience:**
+
+**Kubernetes Engineer | [Company Name] | [City, State] | [Month Year] - Present**
+- Designed and implemented Kubernetes clusters on AWS for microservices-based applications, optimizing scalability and resilience.
+- Leveraged Terraform to provision infrastructure as code, reducing deployment time by 30% and ensuring consistency.
+- Implemented GitLab CI/CD pipelines for automated deployment and testing, resulting in a 40% reduction in release cycles.
+- Orchestrated migration of legacy applications to Kubernetes, improving resource utilization and reducing operational overhead.
+- Implemented Istio service mesh to enhance application security, traffic management, and observability.
+- Collaborated with development teams to establish best practices for containerization and deployment on Kubernetes.
+- Led troubleshooting efforts during critical incidents, minimizing downtime and improving system reliability.
+
+**Kubernetes DevOps Engineer | [Company Name] | [City, State] | [Month Year] - [Month Year]**
+- Managed and maintained Kubernetes clusters across AWS and GCP, ensuring high availability and optimal performance.
+- Developed Helm charts for application deployments, enabling standardized and repeatable releases.
+- Implemented custom monitoring and alerting using Prometheus and Grafana, leading to proactive issue detection and resolution.
+- Integrated centralized logging with the ELK Stack, improving visibility into application logs and troubleshooting.
+- Collaborated with security teams to establish Role-Based Access Control (RBAC) and enforce Pod Security Policies.
+- Automated routine tasks using Python scripts, enhancing operational efficiency and reducing manual intervention.
+
+**Education:**
+[Bachelor's/Master's] in [Your Field] | [University Name] | [City, State] | [Graduation Year]
+
+**Certifications:**
+- Certified Kubernetes Administrator (CKA) | Cloud Native Computing Foundation | [Year]
+- AWS Certified Solutions Architect - Associate | Amazon Web Services | [Year]
+
+**Languages:**
+- Fluent in [Languages, e.g., English]
+
+**References:**
+Available upon request.

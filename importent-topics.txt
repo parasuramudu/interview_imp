@@ -1,0 +1,1 @@
+On-premise software is installed on local servers or computers, while off-premise software is hosted on remote servers or in the cloud. On-premise deployment generally requires organizations to purchase, install, and maintain the necessary hardware and software infrastructure.

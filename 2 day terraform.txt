@@ -1,0 +1,82 @@
+3 tier architecture
+===================
+
+BD - postgress
+
+Backend API Apllication - NodeJS
+
+Frontend Web Application - NodeJS
+
+Automated infra:
+Deploy application as containerised
+
+Logs, https,cloudfront,security
+
+Network Setup:
+==============
+vpc --> virtual private cloud
+
+1. Learning Terraform concepts
+      
+   variables
+   count and count index
+   locals
+   data sources
+   functions
+   provisioners
+   modules
+
+2.apply those concepts
+  project implementation
+  
+  1. Create VPC
+    
+     resource "aws_vpc" "main" {
+         cidr_block = "10.0.0.0/16"
+         instance_tenancy = "default"
+         enable_dns_support = true
+         enable_dns_hostnames = true
+
+         tags = {
+            Name = "timing-1"
+            Terraform = "true"
+            Environment = "DEV"
+       }
+     }
+
+  2.create internet gateway
+  3.Attach internet gateway to vpc
+  4.create public subnet
+  5.create public route table
+  6.create private subnet
+  7.create private route table
+  8.create database subnet
+  9.create database route table
+  10.associations
+  11.NAT gateway
+  12.attach nat gateway
+
+terraform files = declared configuration = terraform responsibility to create these resources provided you did correct syntax
+
+actual configuration = tfstate = this is where terraform track the resources it created
+
+declared configuration == actual cofiguration
+
+Inbound --> traffic coming in
+outbound --> traffic going out
+
+variables:
+===========
+
+number
+string
+bool
+list
+map
+
+variable "project_name"
+{
+type = string
+default = "timing-2"
+description = "this is the project name"
+}

@@ -1,0 +1,16 @@
+modules:
+--------
+1. our own modules
+2. open source modules
+
+how to create resources in multiple environment:
+------------------------------------------------
+1.use terraform.tfvars
+2.terraform workspaces
+3.seperate repos for DEV and PROD
+
+use terraform.tfvars:
+---------------------
+DEV infra state --> DEV s3 bucket with dynamodb lock
+PROD infra state --> PROD s3 bucket with dynamodb lock
+

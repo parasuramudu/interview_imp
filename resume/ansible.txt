@@ -1,0 +1,53 @@
+ansible:
+
+[Your Name]
+[Your Address]
+[City, State, ZIP]
+[Phone Number]
+[Email Address]
+[LinkedIn Profile]
+
+**Professional Summary:**
+Results-driven Ansible Engineer with 4+ years of hands-on experience in designing, implementing, and automating infrastructure using Ansible. Proven expertise in streamlining deployment processes, enhancing system scalability, and optimizing operational efficiency. Adept at collaborating with cross-functional teams to deliver reliable and scalable solutions.
+
+**Skills:**
+- Ansible Automation
+- Infrastructure as Code (IaC)
+- Configuration Management
+- DevOps Tools - Docker, Kubernetes
+- Scripting - Python, Bash
+- Cloud Platforms - AWS, Azure
+- Continuous Integration/Continuous Deployment (CI/CD)
+- Problem Solving and Troubleshooting
+- Team Collaboration
+
+**Professional Experience:**
+
+**Ansible Engineer | [Company Name] | [City, State] | [Month Year] - Present**
+- Designed and implemented Ansible playbooks and roles for automating the provisioning and configuration of infrastructure components.
+- Led efforts to migrate legacy systems to a containerized architecture using Docker and Kubernetes, resulting in improved scalability and resource utilization.
+- Collaborated closely with development and operations teams to define infrastructure requirements and ensure alignment with business goals.
+- Implemented CI/CD pipelines integrating Ansible, Jenkins, and Git to automate software deployment, reducing manual errors by 50%.
+- Streamlined configuration management processes, reducing deployment time by 30% and increasing system consistency.
+- Assisted in the creation of IaC templates using Terraform to provision cloud resources in AWS, optimizing resource usage.
+- Conducted regular security assessments and audits to ensure compliance with industry standards and best practices.
+
+**Ansible Automation Engineer | [Company Name] | [City, State] | [Month Year] - [Month Year]**
+- Developed custom Ansible modules and extensions to meet specific infrastructure automation needs.
+- Automated routine tasks, resulting in a 25% reduction in operational overhead.
+- Collaborated with cross-functional teams to identify automation opportunities and implement solutions.
+- Improved monitoring and logging infrastructure by integrating Ansible with Prometheus and Grafana.
+- Assisted in troubleshooting complex deployment and configuration issues, ensuring minimal downtime.
+
+**Education:**
+[Bachelor's/Master's] in [Your Field] | [University Name] | [City, State] | [Graduation Year]
+
+**Certifications:**
+- [Ansible Certification Name] | [Certifying Organization] | [Year]
+- [Cloud Certification Name] | [Certifying Organization] | [Year]
+
+**Languages:**
+- Fluent in [Languages, e.g., English]
+
+**References:**
+Available upon request.

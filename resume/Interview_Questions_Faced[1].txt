@@ -1,0 +1,262 @@
+1) Symphony:
+----------------
+1) What are the spot instances? Why we need to go for spot?
+
+2) What is PAAS? What are the AWS Services comes under PAAS?
+
+3) What are the attributes involved in LB?
+
+4) What is GITHUB? And what are the GITHUB actions?
+
+5) What is difference between Agile & Devops?
+
+6) What are the different tools in DEVOPS? What you used?
+
+7) How we will monitor K8s services?
+
+8) What are the monitoring services for K8s Cluster?
+
+9) What is Golden Image? How can we create using docker?
+
+10) How Pods managing in a cluster?
+
+11) How will you take actions if there is any failures in Pods or nodes?
+
+12) What are the different services in K8S ?
+
+13) What are the services specific to POD? How it will be improved ?
+
+14) What are the steps to configure K8S clusters performance for monitoring?
+
+15) How u will improve secuirty to clusters in K8S?
+
+16) What is IAAC?
+
+17) What are the tools as part of IAAC?
+
+18) What are the services that you build using terraform?
+
+19) Will we configure VPC using terraform?
+
+20) What is VPC peering? Will configure using terraform?
+
+21) How will u monitor/manage Pod actions in K8S ?
+
+22) What is AWS Fargate?
+
+Note: How can we stop POD to not use all resources of a system?
+We can restrict the resources upto certain stage by using "requests" & "limits" to avoid exhaust stage by the POD safety
+
+23) What are the best practices wrt Docker?
+A) 1) use Light weight base images like alpine, busybox etc
+ 2) Multi stage Builds, remove unnecessary installations
+ 3) Use Non root users
+ 4) Use volumes for stateful applications
+ 5) Use docker compose
+ 6) use env variables instead of hard coding
+ 7) use dedicated custom networks
+ 8) Don't keep secrets in images
+ 9) scan the images and fix vulnerabilities
+ 10) Limit resources CPU , RAM
+ 11) Configure health checks
+
+24) What is AWS WAF?
+A)
+
+2) EY:
+------------
+1) Tell me the flow of CI & CD process?
+
+2) Where did you store source files?
+
+3) How did you integrate K8s service files?
+
+4) Did you used Jenkins in your project? If yes in which stage and purpose?
+
+4) What is difference between scripting and declarative pipelines?
+
+5) What is variables and how it got used in Jenkins?
+
+6) What is GITHUB actions?
+
+7) What are different types of GIT branching strategies?
+
+8) What is docker files?What are the different commands used in Docker files?
+
+9) Where did you stored these docker files in our project?
+
+10) What is difference between Docker & K8S?
+
+11) What are the K8S services?
+
+12) What is Helm charts? why it is used?
+
+13) Where did you store these helm charts?
+
+14) How did you integrate docker container? How will you implement docker files?
+
+15) What are different types of S3?
+
+16) Why we used S3 in our project?
+
+17) What are the different monitoring strategies of K8S cluster?
+
+18) What is VPC? Explain about VPC concepts?
+
+19) What is Terraform? Where did you stored terraform files?
+
+20) What is tf state file?
+
+21) In what stages, did we used terraform in the project?
+
+22) What is Openshift? What is the purpose of this?
+
+23) What is NACL? What is the usage of this in AWS?
+
+24) How can we schedule dockerfiles in your project?
+
+25) What is artifact? what is pom.xml file ?
+
+
+ 
+
+3) SyneChron:
+---------------
+1) What are different types of S3?
+A) S3 Standard
+	S3 Intelligent Tiering
+	S3 one zone 1A(Infrequently Access)
+	S3 Standard 1A
+	S Glacier
+	S3 Glacier Deep Archive
+	
+2) Can we login the host if we lost the key-pair in AWS?
+A) We can't login the host but however by stopping and detach the new volume andattach to temporary mount can connect with new key pair
+
+3) How will we connect the host if it is present in Private subnet?
+A) Using Bastion Host/Jumper Host
+
+4) How can we reverse the number without using in-built function in Python?
+A) Using String Manipulation:
+-------------------------------
+	def reverse_number(n):
+    reversed_str = str(n)[::-1]
+    reversed_num = int(reversed_str)
+    return reversed_num
+
+num = 12345
+reversed_num = reverse_number(num)
+print(reversed_num)  # Output: 54321
+
+using Mathematics:
+----------------------
+
+def reverse_number(n):
+    reversed_num = 0
+    while n > 0:
+        digit = n % 10
+        reversed_num = reversed_num * 10 + digit
+        n //= 10
+    return reversed_num
+
+num = 12345
+reversed_num = reverse_number(num)
+print(reversed_num)  # Output: 54321
+
+Using recursion:
+----------------------
+def reverse_number(n)
+	if n < 10:
+		return n
+	else:
+		return int(str(n%10) + str(reverse_number(n //10)))
+num =12345
+reversed_number = reverse_number(num)
+print (reversed_number)
+
+
+5) What are different types of Deployment methods? Explain abt them?
+A) Both Blue-green and Canary deployment steps aim to reduce downtime, prevent issues and provide safety nuts for the new version of software applications
+
+In Blue-Green method, will maintain two identical environments referred as "Blue" and "Green". At any given time one environment is active and another one is inactive.
+Will make it active one environment once successful testing, deployments and make it other one to "IN-ACTIVE"
+			Blue-Green										Canary Deployment
+			----------------								-----------------------
+1) Minimal Risk incase of version issues					1) early Issue Detection from the group of users 
+2) Fasting Rollouts incase of any test cases failures		2) Gradual Exposure with Minimal Audience
+3) Controlled Cutover										3) Real World testing
+4) Costliest Method											4) Less Cost but Time taken Method
+5) Chances of Lack of Synchronous data 						5) Minimizing the synchronous issues
+
+
+6) If the host got heavy load traffic, then how we can improve the performance with zero downtime in AWS?
+A) We have so many ways to improve the performance by using AWS services in different strategies i.e.,
+	1) AutoScaling: Automatically adjust the instances based on the load/traffic
+	2) Using Elastic Loand Balancing, we can handle more traffic by routing to different hosts to maintain healthy & fault-tolerance
+	3) If the application host is RDS(Relational Databases) then using Read Replicas can improve performance without affecting any primary database
+	4) Amazon CloudFront distribute the traffic content to edge locations for reducing the latency and improves the statis & dynamic content
+	5) Using Serverless computing, AWS Lambda helps to handle spikes in traffic without provisioning the additional instances
+	6) Multi AZ Deployment wrt Amazon RDS
+	7) Rolling Deployments 
+
+Terraform Interview Questions:
+-----------------------------------
+1) What is Terraform?
+A) Terraform is a Infrastructure As a Code toold which creates/maintains the Infrastructure with-in minutes . The main benefits are 
+a) Versioning Control
+b) Consistent Infrastructure
+c) Automates CRUD Operations
+d) Cost Optimisation
+e) Automatic Inventory Management
+f) Modular Infrastructure creation
+
+2) What is state in terraform ?
+A) Terraform uses a state file to compare actual infrastructure created and desired infrastructure through .tf files.
+State file = Actual Infrastructure created by Terraform
+Desired file = Declared Infrastructure through .tf files
+
+3) What is remote state in Terraform?
+A) Saving the state in terraform is not recommendable since in collabrative environment, multiple persons amy work on same environment at the same time and have
+errors and duplication of source files.
+To avoid this, Terraform maintaining the state files in version control environments and distributed environment such as S3 for easily accessible to all globally
+
+4) Explain variables in Terraform?
+A) Variables are used to parameterize the infrastructure and pass dynamic values to the variables during implemention/configuration
+Differnt types of Variables such as 
+string,
+boolean,
+Number,
+Map,
+List
+
+5) What is tfvars in terraform?
+A) TFVARS is the file which have key value pairs. It is used to supply the values to terraform varaibles. 
+If default value specified in the file, then can override the TFVARS file value content
+
+We can use -var-file tag during applying the terraform file
+
+terraform apply -var-file=dev.tfvars
+
+We can use same tfvars file for DEV, QC & PROD by passing values dynamically
+
+6) What is count & count index in terraform?
+A) Count describes the multiple instances creation of a resource based on specified count value
+Count index refers the index from 0 . This index useful to set appropriate values 
+
+7) What are outputs in Terraform?
+A) When we create resources in terraform, it gives us teh attributes of the resources it created.
+These outputs used for other resources while creating.
+
+8) What are datasources in Terraform?
+A) We can query the information from the cloud using datasources and can retrieve the existing resource details and use them while creating other resources
+
+9) What are locals in Terraform?
+A) Locals are similar to variables and can't override once defined/set the key-pair where as variables can be override
+
+10) What re the functions in terraform?
+A) Functions are to do a unit of work, it can accepts inputs and provide outputs for us. Differnt types of functions
+String Functions
+Network functions
+Slice Functions
+Numeric Functions
+Data functions

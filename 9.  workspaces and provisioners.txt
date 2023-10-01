@@ -1,0 +1,32 @@
+1. defferent repos
+2. .tfvars
+3.workspaces
+
+create ec2 instance:
+--------------------
+if DEV choose t3.micro
+if PROD choose t3.large
+
+provisioners:
+------------
+terrraform --> IaaC ->provisioning infra
+ansible --> configuration management
+
+EC2 Instance:
+-------------
+creating ec2 instance is terraform
+installing  softwares in side the ec2 instance is ansible resposibility.
+
+local-Exec
+remote-Exec
+
+local-exec:
+----------
+we need public ip in file
+ansible will read this file,get the public ip,connect ec2 instance and install jenkins
+
+remote-Exec:
+------------
+command you give herewill not run in local,instead those will run inside the ec2 instance.
+
+first we need to connect to the server
